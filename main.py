@@ -1,9 +1,11 @@
 import discord
+from discord.ext import commands
 from bot_token import bot_token
 import time
 import asyncio
 
 messages = joined = 0
+bot = commands.Bot(command_prefix = '.')
 
 valid_channels = ['commands']
 valid_users = ['ArbitEr#0507']
@@ -40,6 +42,7 @@ async def on_member_join(member):
         if str(channel) == "general":
             await client.send_message(f'Hello {member.mention} , Welcome to this Server')
 
+
 @client.event
 async def on_message(message):
     global messages
@@ -50,13 +53,13 @@ async def on_message(message):
         return
     if str(message.channel) in valid_channels and str(message.author) in valid_users:
 
-        if message.content == ".hi":
+        if message.content == "hi":
             await message.channel.send("Hello")
 
-        elif message.content == ".hello":
+        elif message.content == "hello":
             await message.channel.send("Hi")
             
-        elif message.content == ".users":
+        elif message.content == "users":
             await message.channel.send(f"There are total **{id.member_count}** member(s)")
         
     
