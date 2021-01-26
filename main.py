@@ -46,6 +46,8 @@ async def on_message(message):
     messages += 1
     id = client.get_guild(803147327195971614)
 
+    if message.author == client.user:
+        return
     if str(message.channel) in valid_channels and str(message.author) in valid_users:
 
         if message.content == ".hi":
