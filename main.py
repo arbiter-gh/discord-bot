@@ -53,8 +53,12 @@ async def on_message(message):
         if message.content == ".hi":
             await message.channel.send("Hello")
 
+        elif message.content == ".hello":
+            await message.channel.send("Hi")
+            
         elif message.content == ".users":
             await message.channel.send(f"There are total **{id.member_count}** member(s)")
+        
     
     else:
         print(f"{message.author} tried to send command {message.content} in channel {message.channel}")
