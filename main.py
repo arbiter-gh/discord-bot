@@ -56,7 +56,7 @@ async def on_message(message):
             await message.channel.send(f'Hello {message.author.mention}')
            
         elif message.content == ".users":
-            await message.channel.send(f"There are total **{id.member_count}** member(s)")
+            await message.channel.send(f"There are total **{id.member_count}** member(s). Online Users {client.users}")
         
     
     else:
