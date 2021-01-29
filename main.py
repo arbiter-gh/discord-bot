@@ -52,12 +52,9 @@ async def on_message(message):
         return
     if str(message.channel) in valid_channels and str(message.author) in valid_users:
 
-        if message.content == ".hi":
-            await message.channel.send("Hello")
-
-        elif message.content == ".hello":
-            await message.channel.send(f'Hi {message.author.mention}')
-            
+        if message.content == "hi" or message.content == "Hi" or message.content == "hello" or message.content == "Hello":
+            await message.channel.send(f'Hello {message.author.mention}')
+           
         elif message.content == ".users":
             await message.channel.send(f"There are total **{id.member_count}** member(s)")
         
