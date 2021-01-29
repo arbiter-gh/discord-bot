@@ -8,6 +8,7 @@ messages = joined = 0
 
 valid_channels = ['commands']
 valid_users = ['ArbitEr#0507']
+greetings = ["Hi", "hi", "Hello", "hello", "Hii", "hii"]
 
 client = discord.Client()
 
@@ -52,7 +53,7 @@ async def on_message(message):
         return
     if str(message.channel) in valid_channels and str(message.author) in valid_users:
 
-        if message.content.startswith("Hi") or message.content == "hi" or message.content == "hello" or message.content == "Hello":
+        if message.content in greetings:
             await message.channel.send(f'Hello {message.author.mention}')
            
         elif message.content == ".users":
