@@ -42,7 +42,6 @@ async def on_member_join(member):
         if str(channel) == "general":
             await client.send_message(f'Hello {member.mention} , Welcome to this Server')
 
-
 @client.event
 async def on_message(message):
     global messages
@@ -53,7 +52,7 @@ async def on_message(message):
         return
     if str(message.channel) in valid_channels and str(message.author) in valid_users:
 
-        if message.content in greetings:
+        if message.content.startswith(greetings):
             await message.channel.send(f'Hello {message.author.mention}')
            
         elif message.content == ".users":
