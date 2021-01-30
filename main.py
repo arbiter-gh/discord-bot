@@ -10,6 +10,7 @@ valid_channels = ['commands']
 valid_users = ['ArbitEr#0507']
 greetings = ["Hi", "hi", "Hello", "hello", "Hii", "hii"]
 
+
 client = discord.Client()
 
 @client.event
@@ -40,7 +41,7 @@ async def on_member_join(member):
     joined += 1
     for channel in member.server.channels:
         if str(channel) == "general":
-            await client.send_message(f'Hello {member.mention} , Welcome to this Server')
+            await member.channel.send(f'Hello {member.mention} , Welcome to this Server')
 
 @client.event
 async def on_message(message):
@@ -58,7 +59,7 @@ async def on_message(message):
         elif message.content == ".users":
             await message.channel.send(f"There are total **{id.member_count}** member(s).")
         
-    
+     
     else:
         print(f"{message.author} tried to send command {message.content} in channel {message.channel}")
 
